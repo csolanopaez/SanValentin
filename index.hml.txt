@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Valentín 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#fff5f7;
+  text-align:center;
+}
+
+.card{
+  max-width:650px;
+  margin:60px auto;
+  background:white;
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+h1{color:#ff4d6d;margin:0}
+.sub{color:#6b6b6b;margin-top:8px}
+
+.carousel{
+  margin-top:18px;
+}
+
+.carousel img{
+  width:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.controls{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+button{
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.nav{background:#ffd6e0;color:#a11f3b}
+.music{background:#ff4d6d;color:white}
+
+.plan{
+  margin-top:18px;
+  font-weight:bold;
+  color:#a11f3b;
+  line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <h1>Katyuska 💖</h1>
+  <div class="sub">Un ratito juntos…</div>
+
+  <div class="carousel">
+    <img id="photo" src="Fotos/1.jpg">
+  </div>
+
+  <div class="controls">
+    <button class="nav" onclick="prev()">⬅</button>
+    <button class="nav" onclick="next()">➡</button>
+    <button class="music" onclick="playMusic()">▶ música</button>
+  </div>
+
+  <div class="plan">
+    El plan: unos vinito 🍷,<br>
+    una carne 🥩,<br>
+    cenita en casita,<br>
+    viendo fotos 📸<br>
+    y escuchando musiquita juntos 🎶
+  </div>
+
+</div>
+
+<audio id="audio" src="Sabino - Conmigo Siempre.mp3"></audio>
+
+<script>
+const photos=[
+  "Fotos/1.jpg",
+  "Fotos/2.jpg",
+  "Fotos/3.jpg"
+];
+
+let i=0;
+
+function show(){
+  document.getElementById("photo").src=photos[i];
+}
+
+function next(){
+  i=(i+1)%photos.length;
+  show();
+}
+
+function prev(){
+  i=(i-1+photos.length)%photos.length;
+  show();
+}
+
+function playMusic(){
+  const a=document.getElementById("audio");
+  a.volume=0.85;
+  a.play();
+}
+</script>
+
+</body>
+</html>
